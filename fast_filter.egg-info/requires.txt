@@ -1,0 +1,10 @@
+pandas
+numpy
+pydantic
+pyarrow
+
+[dev]
+autoflake
+black
+mypy
+pytest

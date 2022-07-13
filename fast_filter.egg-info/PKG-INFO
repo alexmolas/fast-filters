@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: fast-filter
+Version: 0.0.1
+Summary: "Tools to filter lists of lists in a fast way"
+Home-page: https://github.com/AlexMolas/fast-filter
+Author: Alex Molas
+License: "Proprietary"
+Description: UNKNOWN
+Keywords: python data
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Provides-Extra: dev
