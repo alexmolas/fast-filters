@@ -45,4 +45,7 @@ def test_vectorized_not_null_intersection():
     converter = Converter(vocabulary=vocabulary)
     df["a_encoded"] = df["a"].map(converter.convert)
     df["b_encoded"] = df["b"].map(converter.convert)
-    assert all(vectorized_not_null_intersection(df, 'a_encoded', 'b_encoded') == pd.Series([True, True]))
+    assert all(
+        vectorized_not_null_intersection(df, "a_encoded", "b_encoded")
+        == pd.Series([True, True])
+    )

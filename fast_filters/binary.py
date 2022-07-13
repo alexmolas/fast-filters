@@ -1,23 +1,23 @@
-from typing import Sequence, Set
+from typing import Set
 
 import pandas as pd
 
 
 class Converter:
-    def __init__(self, vocabulary: Set[str]):
+    def __init__(self, vocabulary: Set):
         self.vocabulary = vocabulary
         self.word_to_exponent = {k: i for i, k in enumerate(vocabulary)}
         self.exponent_to_word = {i: k for i, k in enumerate(vocabulary)}
 
-    def convert(self, s: Sequence[str]) -> int:
+    def convert(self, s: Set[str]) -> int:
         return sum(2 ** self.word_to_exponent[k] for k in s)
 
-    def inv_convert(self, n: int) -> Sequence[str]:
-        return [
+    def inv_convert(self, n: int) -> Set[str]:
+        return {
             self.exponent_to_word[i]
             for i in range(len(self.vocabulary))
             if n & (1 << i)
-        ]
+        }
 
     @classmethod
     def from_vocabulary(cls, vocabulary: pd.Series) -> "Converter":
@@ -29,4 +29,4 @@ def vectorized_not_null_intersection(df: pd.DataFrame, c1: str, c2: str) -> pd.S
 
 
 def vectorized_c2_contains_c1(df: pd.DataFrame, c1: str, c2: str) -> pd.Series:
-    return df[c1] == (df[c1] & df[c2])
+    return df[c2] == (df[c1] & df[c2])
